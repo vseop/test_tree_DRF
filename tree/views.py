@@ -1,8 +1,7 @@
-from django.shortcuts import render
-from .models import Tree
-
 from rest_framework import viewsets, mixins
-from .serializers import *
+from .serializers import TreeSeializer, ThreeCreateSerializer
+
+from .models import Tree
 
 
 class MyViewSet(mixins.CreateModelMixin,
@@ -14,6 +13,7 @@ class MyViewSet(mixins.CreateModelMixin,
 
 
 class TreeViewSet(MyViewSet):
+    """Вывод списка дерева, создание, удаление, вывод ветки """
     # serializer_class = TreeSeializer
     queryset = Tree.objects.all()
 
