@@ -3,6 +3,7 @@ from mptt.models import MPTTModel, TreeForeignKey
 
 
 class Tree(MPTTModel):
+    "Модель дерева"
     parent = TreeForeignKey('self', models.CASCADE, null=True, blank=True, verbose_name='Родитель',
                             related_name='children')
     name = models.CharField(max_length=255, verbose_name='Название')
